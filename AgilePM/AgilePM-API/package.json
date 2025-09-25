@@ -1,0 +1,12 @@
+{
+  "name": "agilepm-api",
+  "version": "1.0.0",
+  "main": "dist/index.js",
+  "scripts": {
+    "start": "node dist/index.js",
+    "build": "echo \"No hay build definido\"",
+    "test": "echo \"No hay pruebas definidas aún\" && exit 0"
+  },
+  "dependencies": {},
+  "devDependencies": {}
+}
