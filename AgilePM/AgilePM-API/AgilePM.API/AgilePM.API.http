@@ -1,0 +1,6 @@
+@AgilePM.API_HostAddress = http://localhost:5139
+
+GET {{AgilePM.API_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

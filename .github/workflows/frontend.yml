@@ -1,0 +1,54 @@
+name: Frontend CI
+
+on:
+  push:
+    paths:
+      - 'AgilePM/AgilePM-UI/**'
+  pull_request:
+    paths:
+      - 'AgilePM/AgilePM-UI/**'
+
+jobs:
+  build-test-sonar-lighthouse:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Use Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Install dependencies
+        run: |
+          cd AgilePM/AgilePM-UI
+          npm install
+      - name: Run tests with coverage
+        run: |
+          cd AgilePM/AgilePM-UI
+          npm run test -- --coverage || true
+      - name: SonarCloud Scan
+        uses: SonarSource/sonarcloud-github-action@v2
+        with:
+          projectBaseDir: AgilePM/AgilePM-UI
+        env:
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+          SONAR_PROJECT_KEY: ${{ secrets.SONAR_PROJECT_KEY }}
+          SONAR_ORG: ${{ secrets.SONAR_ORG }}
+      - name: Build frontend
+        run: |
+          cd AgilePM/AgilePM-UI
+          npm run build
+      - name: Start frontend (Nginx)
+        run: |
+          docker run -d -p 3000:3000 -v $(pwd)/AgilePM/AgilePM-UI/dist:/usr/share/nginx/html nginx:1.25-alpine
+      - name: Lighthouse CI
+        uses: treosh/lighthouse-ci-action@v11
+        with:
+          urls: 'http://localhost:3000/'
+          uploadArtifacts: true
+          configPath: './AgilePM/AgilePM-UI/lighthouserc.json'
+        continue-on-error: true
+      - name: Upload Lighthouse Report
+        uses: actions/upload-artifact@v4
+        with:
+          name: lighthouse-report
+          path: '.lighthouseci'

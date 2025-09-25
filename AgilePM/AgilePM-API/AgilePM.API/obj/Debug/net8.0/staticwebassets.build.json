@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "4gnPuW4NNb0Xlbix7G9bhAaDIg3umkwzsT2YbvHHOhs=",
+  "Source": "AgilePM.API",
+  "BasePath": "_content/AgilePM.API",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}

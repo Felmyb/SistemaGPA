@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AgilePM.API", "AgilePM.API\AgilePM.API.csproj", "{5509D440-24B3-4746-9AAA-BD97ED17E965}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AgilePM.API.Tests", "AgilePM.API.Tests\AgilePM.API.Tests.csproj", "{F642E938-14D1-4BB4-8193-27A0F88A980E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5509D440-24B3-4746-9AAA-BD97ED17E965}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5509D440-24B3-4746-9AAA-BD97ED17E965}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5509D440-24B3-4746-9AAA-BD97ED17E965}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5509D440-24B3-4746-9AAA-BD97ED17E965}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F642E938-14D1-4BB4-8193-27A0F88A980E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F642E938-14D1-4BB4-8193-27A0F88A980E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F642E938-14D1-4BB4-8193-27A0F88A980E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F642E938-14D1-4BB4-8193-27A0F88A980E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

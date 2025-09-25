@@ -1,0 +1,22 @@
+name: IAC CI
+
+on:
+  push:
+    paths:
+      - 'iac/docker-compose.yml'
+  pull_request:
+    paths:
+      - 'iac/docker-compose.yml'
+
+jobs:
+  validate-build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Docker Compose Lint
+        uses: mikefarah/yq@v4.44.1
+        with:
+          cmd: yq e '.' iac/docker-compose.yml
+      - name: Build Images
+        run: |
+          docker-compose -f iac/docker-compose.yml build
