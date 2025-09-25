@@ -16,14 +16,14 @@ jobs:
         image: postgres:15-alpine
         env:
           POSTGRES_USER: admin
-          POSTGRES_PASSWORD: adminpass
+          POSTGRES_PASSWORD: ${{ secrets.POSTGRES_PASSWORD }}
           POSTGRES_DB: agilepm
         ports:
           - 5432:5432
         options: >-
           --health-cmd pg_isready --health-interval 10s --health-timeout 5s --health-retries 5
     env:
-      DATABASE_URL: postgres://admin:adminpass@localhost:5432/agilepm
+      DATABASE_URL: postgres://admin:${{ secrets.POSTGRES_PASSWORD }}@localhost:5432/agilepm
       SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
       SONAR_PROJECT_KEY: ${{ secrets.SONAR_PROJECT_KEY }}
       SONAR_ORG: ${{ secrets.SONAR_ORG }}
