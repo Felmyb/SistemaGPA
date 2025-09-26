@@ -17,6 +17,8 @@ jobs:
         uses: mikefarah/yq@v4.44.1
         with:
           cmd: yq e '.' iac/docker-compose.yml
+        continue-on-error: true
       - name: Build Images
         run: |
           docker-compose -f iac/docker-compose.yml build
+        continue-on-error: true

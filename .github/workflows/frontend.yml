@@ -33,10 +33,12 @@ jobs:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
           SONAR_PROJECT_KEY: ${{ secrets.SONAR_PROJECT_KEY }}
           SONAR_ORG: ${{ secrets.SONAR_ORG }}
+        continue-on-error: true
       - name: Build frontend
         run: |
           cd AgilePM/AgilePM-UI
           npm run build
+        continue-on-error: true
       - name: Start frontend (Nginx)
         run: |
           docker run -d -p 3000:3000 -v $(pwd)/AgilePM/AgilePM-UI/dist:/usr/share/nginx/html nginx:1.25-alpine

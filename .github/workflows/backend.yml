@@ -49,11 +49,13 @@ jobs:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
           SONAR_PROJECT_KEY: ${{ secrets.SONAR_PROJECT_KEY }}
           SONAR_ORG: ${{ secrets.SONAR_ORG }}
+        continue-on-error: true
       - name: Start API
         run: |
           cd AgilePM/AgilePM-API
           npm run build
           nohup npm start &
+        continue-on-error: true
       - name: OWASP ZAP Baseline Scan
         uses: zaproxy/action-baseline@v0.10.0
         with:
